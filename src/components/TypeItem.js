@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class PokeItem extends Component {
+export class TypeItem extends Component {
   render() {
     return (
       <div>
@@ -10,6 +10,6 @@ export class PokeItem extends Component {
   }
 }
 
-export default PokeItem;
+export default TypeItem;
 
 

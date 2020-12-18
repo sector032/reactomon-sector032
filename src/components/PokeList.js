@@ -7,9 +7,7 @@ class PokeList extends Component {
 
   render() {
     return this.props.pokemonlist.map((poke) => (
-      <h1>
-        <PokeItem key={poke.url} poke={poke}/>
-      </h1>
+        <PokeItem url={poke.url} name={poke.name}/>
     ));
   }
 }

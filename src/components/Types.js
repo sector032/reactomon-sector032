@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import TypeItem from './TypeItem';
 
-export default function Types() {
-  return (
-    <React.Fragment>
-      <p>This is the types Page</p>
-    </React.Fragment>
-  );
+
+class Types extends Component {
+
+  render() {
+    return this.props.typelist.map((poke) => (
+        <TypeItem key={poke.url} name={poke.name}/>
+    ));
+  }
 }
+
+export default Types;
+
+

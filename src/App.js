@@ -4,26 +4,26 @@ import Navbar from './components/layout/Navbar';
 import PokeList from './components/PokeList';
 import Types from './components/Types';
 import MainPage from './components/MainPage';
-//import axios from 'axios';
+import axios from 'axios';
 
 import './App.css';
 
 class App extends Component {
   state = {
-    pokemonlist: [{name:'helo'}, {name:'helo2'}],
+    pokemonlist: [],
+    typelist: []
   };
 
-  /* componentDidMount() {
+  componentDidMount() {
     axios
       .get('https://pokeapi.co/api/v2/pokemon')
-      .then((res) => this.setState({ pokemonlist: res.data }));
-  }*/
-
-  /*componentDidMount() {
-    axios
+      .then((res) => this.setState({ pokemonlist: res.data.results }))
+      axios
       .get('https://pokeapi.co/api/v2/type')
-      .then((res) => this.setState({ typelist: res.data }));
-  }*/
+      .then((res)=>this.setState({typelist: res.data.results}));
+  }
+
+
 
   render() {
     return (
@@ -42,9 +42,9 @@ class App extends Component {
             />
             <Route
               path='/types'
-              component={Types}
               render={(props) => (
                 <React.Fragment>
+                  <Types typelist={this.state.typelist} />
                 </React.Fragment>
               )}
             />
