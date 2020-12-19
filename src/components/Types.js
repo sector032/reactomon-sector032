@@ -18,7 +18,10 @@ export default Types;
 
 const typeStyle = {
   color: "red",
+  textAlign: "center",
   textTransform: "capitalize",
-  display: 'inline-flex',
-  margin: '10px'
+  margin: "10px",
+  fontWeight: "bold",
+  fontSize: "20px"
+
 }

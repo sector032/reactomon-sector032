@@ -9,7 +9,7 @@ class PokeList extends Component {
     return this.props.pokemonlist.map((poke) => (
       <div style={itemStyle}>
         <PokeItem url={poke.url} key={poke.url} name={poke.name}/>
-      </div>
+        </div>
     
     ));
   }
@@ -25,5 +25,13 @@ PokeList.propTypes = {
 const itemStyle = {
   color: "red",
   textTransform: 'capitalize',
-  display: 'inline-flex'
+  display: 'inline-flex',
+  margin: '10px',
+  textAlign: 'center',
+  border: '3px solid',
+  borderColor:  'blue',
+  background: 'yellow',
+  borderRadius: '25px',
+  fontWeight: 'bold',
+
 }
