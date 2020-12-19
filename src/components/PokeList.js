@@ -7,7 +7,10 @@ class PokeList extends Component {
 
   render() {
     return this.props.pokemonlist.map((poke) => (
-        <PokeItem url={poke.url} name={poke.name}/>
+      <div style={itemStyle}>
+        <PokeItem url={poke.url} key={poke.url} name={poke.name}/>
+      </div>
+    
     ));
   }
 }
@@ -17,4 +20,10 @@ export default PokeList;
 
 PokeList.propTypes = {
   pokemonlist: PropTypes.array.isRequired
+}
+
+const itemStyle = {
+  color: "red",
+  textTransform: 'capitalize',
+  display: 'inline-flex'
 }

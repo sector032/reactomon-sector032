@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class TypeItem extends Component {
   render() {
     return (
-      <div>
+      <div tlye={typeStyle}>
         <p>{this.props.name}</p>
       </div>
     );
@@ -12,4 +12,7 @@ export class TypeItem extends Component {
 
 export default TypeItem;
 
-
+const typeStyle = {
+  color: "red",
+  textTransform: "capitalize"
+}

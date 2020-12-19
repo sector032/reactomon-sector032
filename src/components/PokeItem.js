@@ -14,7 +14,7 @@ export class PokeItem extends Component {
   render() {
     return (
       <div>
-        <img src={this.state.image}></img>
+        <a href={this.props.url}><img src={this.state.image}></img></a>
         <p>{this.props.name}</p>
       </div>
     );
