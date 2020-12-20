@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import PokeList from './components/PokeList';
 import Types from './components/Types';
 import MainPage from './components/MainPage';
+import PokeDetail from './components/PokeDetail';
 import axios from 'axios';
 
 import './App.css';
@@ -48,6 +49,9 @@ class App extends Component {
                 </React.Fragment>
               )}
             />
+              <Route path="/pokemon/:id">
+                <PokeDetail />
+              </Route>
           </div>
         </div>
       </Router>
@@ -56,3 +60,4 @@ class App extends Component {
 }
 
 export default App;
+
