@@ -1,32 +1,23 @@
-import React, { Component } from 'react';
 import PokeItem from './PokeItem';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-class PokeList extends Component {
-	render() {
-		return this.props.pokemonlist.map((poke) => (
-			<div style={itemStyle}>
-				<PokeItem url={poke.url} key={poke.url} name={poke.name} />
-			</div>
+const PokemonContainer = styled.div`
+	display: flex;
+	flex-flow: wrap;
+`;
+
+const PokeList = (props) => {
+	const getPokemons = () =>
+		props.pokemons.map((pokemon) => (
+			<PokeItem key={pokemon.url} name={pokemon.name} url={pokemon.url} />
 		));
-	}
-}
+
+	return <PokemonContainer>{getPokemons()}</PokemonContainer>;
+};
 
 export default PokeList;
 
 PokeList.propTypes = {
 	pokemonlist: PropTypes.array.isRequired,
-};
-
-const itemStyle = {
-	color: 'red',
-	textTransform: 'capitalize',
-	display: 'inline-flex',
-	margin: '10px',
-	textAlign: 'center',
-	border: '3px solid',
-	borderColor: 'blue',
-	background: 'yellow',
-	borderRadius: '25px',
-	fontWeight: 'bold',
 };

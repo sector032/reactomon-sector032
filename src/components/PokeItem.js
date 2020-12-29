@@ -1,30 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
-export class PokeItem extends Component {
-	state = {
-		image: null,
-		id: null,
-	};
-	componentDidMount() {
-		axios.get(this.props.url).then((res) =>
-			this.setState({
-				image: res.data.sprites.front_default,
-				id: res.data.id,
-			})
-		);
-	}
+const ItemStyle = styled.div`
+	color: black;
+	text-transform: capitalize;
+	display: inline-table;
+	margin: 5px;
+	padding: 5px 5px;
+	border: 3px solid;
+	border-color: red;
+	background: lightyellow;
+	border-radius: 25px;
+	font-weight: bold;
+	text-align: center;
+	flex-flow: column;
+`;
 
-	render() {
-		return (
-			<div>
-				<a href={`pokemon/${this.state.id}`}>
-					<img src={this.state.image}></img>
-				</a>
-				<p>{this.props.name}</p>
-			</div>
-		);
-	}
-}
+const PokeItem = (props) => {
+	const [imageUrl, setImageUrl] = useState();
+	const [id, setId] = useState();
+	const name = props.name;
+
+	useEffect(() => {
+		axios.get(props.url).then((response) => {
+			setImageUrl(response.data.sprites.front_default);
+			setId(response.data.id);
+		});
+	}, [props.url]);
+
+	return (
+		<ItemStyle>
+			<a href={`pokemon/${id}`}>
+				<img src={imageUrl} alt={name}></img>
+			</a>
+			{name}
+		</ItemStyle>
+	);
+};
 
 export default PokeItem;

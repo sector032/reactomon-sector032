@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TypeItem from './TypeItem';
+import styled from 'styled-components';
 
-class Types extends Component {
-	render() {
-		return this.props.typelist.map((poke) => (
-			<div style={typeStyle}>
-				<TypeItem key={poke.url} name={poke.name} />
-			</div>
-		));
-	}
-}
+const PokemonTypes = styled.div`
+	text-align: center;
+	color: red;
+`;
+
+const Types = (props) => {
+	const getTypes = () =>
+		props.types.map((type) => <TypeItem key={type.url} name={type.name} />);
+
+	return (
+		<React.Fragment>
+			<PokemonTypes>{getTypes()}</PokemonTypes>
+		</React.Fragment>
+	);
+};
 
 export default Types;
-
-const typeStyle = {
-	color: 'red',
-	textAlign: 'center',
-	textTransform: 'capitalize',
-	margin: '10px',
-	fontWeight: 'bold',
-	fontSize: '20px',
-};
