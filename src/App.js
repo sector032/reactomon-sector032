@@ -28,20 +28,9 @@ const App = (props) => {
 					<Route exact path='/' component={MainPage} />
 					<Route
 						path='/pokemons'
-						render={(props) => (
-							<React.Fragment>
-								<PokeList pokemons={pokemons} />
-							</React.Fragment>
-						)}
+						render={(props) => <PokeList pokemons={pokemons} />}
 					/>
-					<Route
-						path='/types'
-						render={(props) => (
-							<React.Fragment>
-								<Types types={types} />
-							</React.Fragment>
-						)}
-					/>
+					<Route path='/types' render={(props) => <Types types={types} />} />
 					<Route path='/pokemon/:id'>
 						<PokeDetail />
 					</Route>
