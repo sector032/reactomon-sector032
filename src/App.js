@@ -6,7 +6,6 @@ import Types from './components/Types';
 import MainPage from './components/MainPage';
 import PokeDetail from './components/PokeDetail';
 import axios from 'axios';
-
 import './App.css';
 
 const App = (props) => {
@@ -21,7 +20,6 @@ const App = (props) => {
 			.get('https://pokeapi.co/api/v2/type')
 			.then((response) => setTypes(response.data.results));
 	}, []);
-
 	return (
 		<Router>
 			<div className='App'>

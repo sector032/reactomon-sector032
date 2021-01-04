@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const ItemStyle = styled.div`
 	color: black;
-	text-transform: capitalize;
 	display: inline-table;
 	margin: 5px;
 	padding: 5px 5px;
@@ -15,6 +14,10 @@ const ItemStyle = styled.div`
 	font-weight: bold;
 	text-align: center;
 	flex-flow: column;
+`;
+
+const PokeName = styled.p`
+	text-transform: capitalize;
 `;
 
 const PokeItem = (props) => {
@@ -34,7 +37,7 @@ const PokeItem = (props) => {
 			<a href={`pokemon/${id}`}>
 				<img src={imageUrl} alt={name}></img>
 			</a>
-			{name}
+			<PokeName>{name}</PokeName>
 		</ItemStyle>
 	);
 };
